@@ -1,11 +1,23 @@
 {
-   "name": "wfgame",
-   "version": "0.0.0",
-   "homepage": "https://github.com/ideas-delivery/wfgame",
-   "description": "A small javascript library for generating and solving word find (also known as word search) puzzles. This proyect is based on bunkat/wordfind",
-   "main": "./src/wordfind.js",
-   "license": "MIT",
-   "ignore": [
-     "**/.*"
-   ]
- }
+  "name": "wfgame",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ideas-delivery/wfgame",
+  "description": "A small javascript library for generating and solving word find (also known as word search) puzzles. This proyect is based on bunkat/wordfind",
+  "main": "./src/wordfind.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "authors": [
+    "ivan huay... <ivanhuay@gmail.com>"
+  ],
+  "keywords": [
+    "wordfind",
+    "jqueryplugin",
+    "game"
+  ]
+}
