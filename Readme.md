@@ -183,6 +183,19 @@ The `found` array contains a set of `location` objects that have the following p
     orientation: the name of the orientation of how the word appears
     overlap:     will always equal `word.length`
 
+#### onClompleteWord(callback)
+
+Add a callback when a word is completed.
+
+  the callback function receives word string parametter.
+
+Example:
+```javascript
+  wordfindgame.onClompleteWord(function(word){
+    console.log(word);
+  });
+```
+
 The `notFound` array contains a list of words that were not located in `puzzle`.
 
 #### print(puzzle)
