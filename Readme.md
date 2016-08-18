@@ -9,6 +9,10 @@ The core `wordfind.js` library contains no dependencies and will work both in th
 
 Check out the sample game at http://bunkat.github.com/wordfind/example/index.html.
 
+### Installation
+
+  bower install wfgame
+
 ## Basic Browser Example
 
     <script type="text/javascript" src="../src/wordfind.js"></script>
@@ -28,53 +32,51 @@ Check out the sample game at http://bunkat.github.com/wordfind/example/index.htm
     </script>
 
 ## Word Find Game Example
+```html
+<div id='puzzle'></div>
+<div id='words'></div>
 
-    <div id='puzzle'></div>
-    <div id='words'></div>
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="../src/wordfind.js"></script>
+<script type="text/javascript" src="scripts/wordfindgame.js"></script>
+<script>
 
-    <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../src/wordfind.js"></script>
-    <script type="text/javascript" src="scripts/wordfindgame.js"></script>
-    <script>
+  var words = ['cows', 'tracks', 'arrived', 'located', 'sir', 'seat',
+               'division', 'effect', 'underline', 'view', 'annual',
+               'anniversary', 'centennial', 'millennium', 'perennial',
+               'artisan', 'apprentice', 'meteorologist', 'blizzard', 'tornado'];
 
-      var words = ['cows', 'tracks', 'arrived', 'located', 'sir', 'seat',
-                   'division', 'effect', 'underline', 'view', 'annual',
-                   'anniversary', 'centennial', 'millennium', 'perennial',
-                   'artisan', 'apprentice', 'meteorologist', 'blizzard', 'tornado'];
+  // start a word find game
+  var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
 
-      // start a word find game
-      var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+</script>
 
-    </script>
-
-
+```
 ## Now support definitios
 
+```html
+  <div id='puzzle'></div>
+  <div id='words'></div>
 
-        ```html
+  <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../src/wordfind.js"></script>
+  <script type="text/javascript" src="scripts/wordfindgame.js"></script>
+  <script>
 
-        <div id='puzzle'></div>
-        <div id='words'></div>
+  var words = {
+    'cow':"a large female farm animal kept to produce meat and milk.",
+    'tracks':'one of several songs or pieces of music on a CD or other musical recording.',
+    'division':'the act of separating something into parts or groups, or the way that it is separated.',
+    'speed':'how fast something moves',
+    'bear':'a large, strong mammal with thick fur that lives esp. in colder parts of the world.',
+    'osmosis':'the process in animals and plants by which a liquid passes gradually from one part to another through a membrane (= tissue that covers cells).'
+  }
 
-        <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="../src/wordfind.js"></script>
-        <script type="text/javascript" src="scripts/wordfindgame.js"></script>
-        <script>
+    // start a word find game
+    var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
 
-        var words = {
-          'cow':"a large female farm animal kept to produce meat and milk.",
-          'tracks':'one of several songs or pieces of music on a CD or other musical recording.',
-          'division':'the act of separating something into parts or groups, or the way that it is separated.',
-          'speed':'how fast something moves',
-          'bear':'a large, strong mammal with thick fur that lives esp. in colder parts of the world.',
-          'osmosis':'the process in animals and plants by which a liquid passes gradually from one part to another through a membrane (= tissue that covers cells).'
-        }
-
-          // start a word find game
-          var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
-
-        </script>
-        ```
+  </script>
+```
 
 ## Options
 
