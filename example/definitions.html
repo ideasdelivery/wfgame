@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Find</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+
+<p>WordFind.js by BunKat</p>
+<div id='puzzle'></div>
+<div id='words'></div>
+<div><button id='solve'>Solve Puzzle</button></div>
+
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="../src/wordfind.js"></script>
+<script type="text/javascript" src="../src/wordfindgame.js"></script>
+<script>
+
+  var words = {
+    'cow':"a large female farm animal kept to produce meat and milk.",
+    'tracks':'one of several songs or pieces of music on a CD or other musical recording.',
+    'division':'the act of separating something into parts or groups, or the way that it is separated.',
+    'speed':'how fast something moves',
+    'bear':'a large, strong mammal with thick fur that lives esp. in colder parts of the world.',
+    'osmosis':'the process in animals and plants by which a liquid passes gradually from one part to another through a membrane (= tissue that covers cells).'
+  }
+  // start a word find game
+  var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+
+  $('#solve').click( function() {
+    wordfindgame.solve(gamePuzzle, words);
+  });
+
+  
+
+</script>
+</body>
+</html>

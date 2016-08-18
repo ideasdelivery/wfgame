@@ -47,6 +47,35 @@ Check out the sample game at http://bunkat.github.com/wordfind/example/index.htm
 
     </script>
 
+
+## Now support definitios
+
+
+        ```html
+
+        <div id='puzzle'></div>
+        <div id='words'></div>
+
+        <script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="../src/wordfind.js"></script>
+        <script type="text/javascript" src="scripts/wordfindgame.js"></script>
+        <script>
+
+        var words = {
+          'cow':"a large female farm animal kept to produce meat and milk.",
+          'tracks':'one of several songs or pieces of music on a CD or other musical recording.',
+          'division':'the act of separating something into parts or groups, or the way that it is separated.',
+          'speed':'how fast something moves',
+          'bear':'a large, strong mammal with thick fur that lives esp. in colder parts of the world.',
+          'osmosis':'the process in animals and plants by which a liquid passes gradually from one part to another through a membrane (= tissue that covers cells).'
+        }
+
+          // start a word find game
+          var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+
+        </script>
+        ```
+
 ## Options
 
 _Wordfind_ supports an options object when creating new puzzles. The options object supports the following properties.

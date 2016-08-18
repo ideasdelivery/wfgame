@@ -61,12 +61,13 @@
          * @param {String} el: The jQuery element to write the words to
          * @param {[String]} words: The words to draw
          */
-        var drawWords = function(el, words) {
+        var drawWords = function(el, wordObj) {
 
             var output = '<ul>';
-            for (var i = 0, len = words.length; i < len; i++) {
-                var word = words[i];
-                output += '<li class="word ' + word + '">' + word;
+
+            for (var word in wordObj) {
+                var definition = wordObj[word];
+                output += '<li class="word ' + "wf_" + word + '">' + definition + '</li>';
             }
             output += '</ul>';
 
@@ -181,7 +182,7 @@
             var xPos = e.originalEvent.touches[0].pageX;
             var yPos = e.originalEvent.touches[0].pageY;
             var targetElement = document.elementFromPoint(xPos, yPos);
-            select(targetElement)
+            select(targetElement);
         };
 
         var mouseMove = function() {
@@ -220,7 +221,8 @@
                 if (wordList[i] === curWord) {
                     $('.selected').addClass('found');
                     wordList.splice(i, 1);
-                    $('.' + curWord).addClass('wordFound');
+                    $('.' + "wf_" + curWord).addClass('wordFound').html(curWord);
+
                     completeWordHandler(curWord);
                 }
 
@@ -240,6 +242,7 @@
         /**
          * Event handler fired after complete a word just for add callback
          *
+         *@param {String} completed word
          */
         var completeWordHandler = function(word) {
 
@@ -267,7 +270,40 @@
 
             return null;
         };
-
+        /**
+         *Return sorted wordList
+         *
+         *@param {Array|Object} words: array or object of words and definitions.
+         *
+         */
+        var getWordList = function(words) {
+            if ($.isArray(words)) {
+                return words.slice(0).sort();
+            } else if ($.isPlainObject(words)) {
+                var keys = [];
+                for (var key in words) {
+                    keys.push(key);
+                }
+                return keys.slice(0).sort();
+            }
+        };
+        /**
+         *Return object of word:definition
+         *
+         *@param {Array|Object} words: array or object of words and definitions.
+         *
+         */
+        var getWordObj = function(words) {
+            if ($.isArray(words)) {
+                var wordObj = {};
+                for (var i in words) {
+                    wordObj[words[i]] = words[i];
+                }
+                return wordObj;
+            } else if ($.isPlainObject(words)) {
+                return words;
+            }
+        };
         return {
 
             /**
@@ -282,13 +318,17 @@
              */
             create: function(words, puzzleEl, wordsEl, options) {
 
-                wordList = words.slice(0).sort();
 
-                var puzzle = wordfind.newPuzzle(words, options);
+                var wordObj = getWordObj(words);
+                wordList = getWordList(words);
+                window.test = wordList;
+                (document.test = wordList);
+                var puzzle = wordfind.newPuzzle(wordList, options);
 
                 // draw out all of the words
                 drawPuzzle(puzzleEl, puzzle);
-                drawWords(wordsEl, wordList);
+
+                drawWords(wordsEl, wordObj);
 
                 // attach events to the buttons
                 // optimistically add events for windows 8 touch
