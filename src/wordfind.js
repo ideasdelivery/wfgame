@@ -33,9 +33,7 @@
 	function setLanguage() {
 		if($('#language-name') && $('#language-name').attr('id')) {
 			language = $('#language-name').val();
-				// Spanish, French, Italian, German, Japanese, Chinese, Hindi, Indonesian, Dutch, Polish, Portuguese, Russian, or Korean
-				
-				// src: http://diacritics.typo.cz/index.php?id=49
+			
 			switch(language) {
 				case 'english':
 			    		letters = 'abcdefghijklmnoprstuvwy';
